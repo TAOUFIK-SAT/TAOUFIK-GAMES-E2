@@ -31,6 +31,28 @@ except ImportError:
     HAS_PIL = False
 
 # ==============================================================================
+# 0. توليد أيقونة البلوغين تلقائياً (Plugin Icon Generator)
+# ==============================================================================
+def create_plugin_icon():
+    plugin_dir = os.path.dirname(os.path.abspath(__file__))
+    icon_path = os.path.join(plugin_dir, "plugin.png")
+    if os.path.exists(icon_path):
+        return
+    if not HAS_PIL:
+        return
+    try:
+        img = Image.new("RGBA", (100, 60), (20, 26, 41, 255))
+        draw = ImageDraw.Draw(img)
+        draw.rounded_rectangle((2, 2, 97, 57), radius=10, outline=(61, 220, 132, 255), width=2)
+        draw.rectangle((40, 22, 60, 38), fill=(61, 220, 132, 255))
+        draw.ellipse((44, 26, 56, 34), fill=(20, 26, 41, 255))
+        img.save(icon_path, "PNG")
+    except Exception:
+        pass
+
+create_plugin_icon()
+
+# ==============================================================================
 # 1. الإعدادات والمسارات والمحاكيات (Neo Geo, Arcade, PS2, Dreamcast)
 # ==============================================================================
 PLUGIN_PATH = os.path.dirname(os.path.abspath(__file__))
