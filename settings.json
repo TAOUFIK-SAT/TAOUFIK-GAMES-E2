@@ -1,0 +1,14 @@
+{
+  "resolution": "auto",
+  "aspect": "auto",
+  "smooth": false,
+  "fps": false,
+  "audio_mute": false,
+  "audio_db": "0.0",
+  "remote_pad": true,
+  "remote_layout": "colors",
+  "swap_ab": false,
+  "btn_ok": null,
+  "btn_exit": null,
+  "btn_menu": null
+}
